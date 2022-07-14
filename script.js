@@ -19,7 +19,8 @@ const init = function(){
 	scoreSecondEl.textContent = 0;
 	diceEl.classList.add('hidden');
 
-	document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner');
+	document.querySelector(`.player--0`).classList.remove('player--winner');
+	document.querySelector(`.player--1`).classList.remove('player--winner');
 	document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
 }
 init();
@@ -50,7 +51,7 @@ btnHold.addEventListener("click", function (e) {
 	if (playing) {
 		scores[activePlayer] += currerntScore;
 		document.querySelector(`#score--${activePlayer}`).textContent = scores[activePlayer];
-		if (scores[activePlayer] >= 100) {
+		if (scores[activePlayer] >= 10) {
 			playing = false;
 			document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
 			document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
